@@ -1,6 +1,7 @@
 import React from "react";
 
 import billLogo from "../../assets/bill-logo.png"
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   return (
@@ -47,16 +48,19 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost md:flex hidden"> <img className="w-14" src={billLogo} alt="" /> </a> 
+        <a className="btn btn-ghost md:flex hidden"> <img className=" p-2 w-14 " src={billLogo} alt="" /> </a> 
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <NavLink to={"/"}>Home</NavLink>
+          </li>
+          <li>
+            <NavLink>Bill</NavLink>
           </li>
           <li>
             <details>
-              <summary>Parent</summary>
+              <summary>Profile</summary>
               <ul className="p-2">
                 <li>
                   <a>Submenu 1</a>
@@ -67,13 +71,12 @@ const Navbar = () => {
               </ul>
             </details>
           </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+         
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end gap-2">
+        <a className="btn ">Login</a>
+        <a className="btn">Register</a>
       </div>
     </div>
   );

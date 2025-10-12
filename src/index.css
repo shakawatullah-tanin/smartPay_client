@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+.common-shadow{
+
+
+    box-shadow: 0px 0px 40px lightblue;
+    transition: all 0.5s;
+    
+}
+
+.common-shadow:hover{
+     box-shadow: 0px 0px 5px lightblue
+}
