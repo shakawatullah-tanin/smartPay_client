@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "DESCO", "logo": "https://upload.wikimedia.org/wikipedia/commons/3/32/Logo_of_DESCO.svg" },
+  { "id": 2, "name": "NESCO", "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Logo_of_NESCO.svg" },
+  { "id": 3, "name": "WASA", "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Seal_of_Dhaka_Water_Supply_and_Sewerage_Authority.svg" },
+  { "id": 4, "name": "bKash", "logo": "https://i.ibb.co.com/xK5pZxqv/bkash.png" },
+  { "id": 5, "name": "Nagad", "logo": "https://download.logo.wine/logo/Nagad/Nagad-Logo.wine.png" },
+  { "id": 6, "name": "Rocket", "logo": "https://upload.wikimedia.org/wikipedia/commons/4/45/Rocket_mobile_banking_logo.svg" }
+]

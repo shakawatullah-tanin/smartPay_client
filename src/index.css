@@ -13,3 +13,28 @@
 .common-shadow:hover{
      box-shadow: 0px 0px 5px lightblue
 }
+
+.image-section:hover .image{
+    /* height: 60px;
+    width: 60px; */
+    transform: scale(1.4 , 1.4);
+    transition: all 0.5s;
+
+}
+.partner-section{
+
+    animation-name: partnerAnimation;
+
+    animation-duration: 10s;
+    animation-iteration-count:infinite;
+
+    
+}
+@keyframes partnerAnimation{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-80%);
+    }
+}

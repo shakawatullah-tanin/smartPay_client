@@ -1,6 +1,7 @@
 import React from "react";
+import { Link, NavLink } from "react-router";
 
-const Login = () => {
+const Register = () => {
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
@@ -24,10 +25,14 @@ const Login = () => {
                   className="input"
                   placeholder="Password"
                 />
-                <div>
-                  <a className="link link-hover">Forgot password?</a>
+
+                <button className="btn btn-neutral mt-4">Register</button>
+                <div className="flex justify-center items-center">
+                  <p className="">Already SignUp? <Link to={"/login"} className="text-blue-800 font-bold underline">
+                    Login
+                  </Link></p>
+                  
                 </div>
-                <button className="btn btn-neutral mt-4">Login</button>
               </fieldset>
             </div>
           </div>
@@ -37,4 +42,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

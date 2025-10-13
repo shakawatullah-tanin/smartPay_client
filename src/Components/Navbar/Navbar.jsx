@@ -48,7 +48,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost md:flex hidden"> <img className=" p-2 w-14 " src={billLogo} alt="" /> </a> 
+        <a className="btn btn-ghost md:flex hidden"> <img className=" p-2 w-14 " src={billLogo} alt="" /> <p className="text-lg">Smart Pay </p> </a> 
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -57,26 +57,12 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink>Bill</NavLink>
-          </li>
-          <li>
-            <details>
-              <summary>Profile</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-         
+          </li>   
         </ul>
       </div>
       <div className="navbar-end gap-2">
-        <a className="btn ">Login</a>
-        <a className="btn">Register</a>
+        <NavLink to={"/login"} className="btn ">Login</NavLink>
+        <NavLink to={"/register"} className="btn">Register</NavLink>
       </div>
     </div>
   );
