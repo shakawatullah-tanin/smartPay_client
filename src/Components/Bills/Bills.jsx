@@ -20,7 +20,7 @@ console.log(bills)
         <div>
 
             {
-                bills.map((bill)=><Bill bill={bill}></Bill>)
+                bills.map((bill)=><Bill key={bill.id} bill={bill}></Bill>)
             }
             
         </div>

@@ -25,7 +25,7 @@
 
     animation-name: partnerAnimation;
 
-    animation-duration: 10s;
+    animation-duration: 20s;
     animation-iteration-count:infinite;
 
     
@@ -37,4 +37,19 @@
     to{
         transform: translateX(-80%);
     }
+}
+.drop-menu{
+
+    top: -300px ;
+    right: 5px;
+    position: absolute;
+}
+.profile{
+    position: relative;
+
+}
+.profile:hover .drop-menu{
+
+    top: 50px;
+    transition: all 0.3s;
 }

@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Bill = ({ bill }) => {
-  const { icon, due_date, bill_type, organization, amount } = bill;
+  const { icon, due_date, bill_type, organization, amount,id } = bill;
 
   return (
     <div>
@@ -24,7 +25,7 @@ const Bill = ({ bill }) => {
             <h1> Last Date for Pay : {due_date}</h1>
           </div>
           
-            <button className="btn mt-6 bg-blue-400">Pay</button>
+            <Link to={`/details/${id}`} className="btn mt-6 bg-blue-400">Pay</Link>
 
         </div>
       </div>

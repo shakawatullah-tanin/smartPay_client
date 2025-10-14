@@ -13,13 +13,13 @@ const Partner = () => {
   console.log(partner);
   return (
     <div>
-      <div className="text-center my-6">
+      <div className="text-center py-20">
         {" "}
         <h1 className="font-bold text-gray-500 text-4xl">Work With Us</h1>
       </div>
-        <div className="grid partner-section grid-cols-6 py-8 gap-6">
+        <div className="grid partner-section grid-cols-6 py-4 gap-6">
           {partner.map((single) => (
-            <SinglePartner single={single}></SinglePartner>
+            <SinglePartner key={single.id} single={single}></SinglePartner>
           ))}
         </div>
       
