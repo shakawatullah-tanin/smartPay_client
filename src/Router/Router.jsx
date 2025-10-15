@@ -6,6 +6,8 @@ import Register from "../Components/Register/Register";
 import Bills from "../Components/Bills/Bills";
 import PrivateRoute from "../Components/Private/PrivateRoute";
 import BillDeatails from "../Components/Bill-Deatils/BillDeatails";
+import Update from "../ProfileUpdate/Update";
+import UpdateProfile from "../ProfileUpdate/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
         path:"/details/:id",
 
         element:<PrivateRoute><BillDeatails></BillDeatails></PrivateRoute>
+      },
+      {
+        path:"/update",
+        element:<PrivateRoute><Update></Update></PrivateRoute>
+      },
+      {
+        path:"/updateProfile",
+        element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
       }
     ]
   }

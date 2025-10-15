@@ -1,35 +1,58 @@
 import React, { use } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { useNavigate } from "react-router";
+import {
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const navigate = useNavigate();
 
-  const navigate =useNavigate()
-  const {signIn}=use(AuthContext)
+  // const navigation =useNavigation()
 
+  const location = useLocation();
 
+  console.log(location?.state?.from);
+  const { signIn, error, setError,signInWithgoogle } = use(AuthContext);
 
-  const handleLogin =(e) =>{
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-
-    e.preventDefault()
-
-    const email= e.target.email.value;
+    const email = e.target.email.value;
     const password = e.target.password.value;
 
+    console.log(email, password);
 
-    console.log(email,password)
+    signIn(email, password)
+      .then((result) => {
+        console.log(result);
+        navigate(location.state.from ? location.state.from : "/");
+      })
 
+      .catch((err) => {
+        setError(" Incorrect Email or Password");
 
-    signIn(email,password)
-    .then(result=>{console.log(result)
-      navigate("/")
-    })
+        toast.error("Login failed");
+      });
+  };
 
-    .catch(error=>console.log(error))
+  const handleGoogleSignIn =( ) =>{
+
+    signInWithgoogle()
+    .then((result) => {
+        console.log(result);
+        navigate(location.state.from ? location.state.from : "/");
+      })
+
+      .catch((err) => {
+        setError(" Incorrect Email or Password");
+
+        toast.error("Login failed");
+      });
 
   }
-
 
   return (
     <div>
@@ -47,7 +70,12 @@ const Login = () => {
             <div className="card-body">
               <form onSubmit={handleLogin} className="fieldset">
                 <label className="label">Email</label>
-                <input type="email"  name="email" className="input" placeholder="Email" />
+                <input
+                  type="email"
+                  name="email"
+                  className="input"
+                  placeholder="Email"
+                />
                 <label className="label">Password</label>
                 <input
                   type="password"
@@ -59,8 +87,13 @@ const Login = () => {
                   <a className="link link-hover">Forgot password?</a>
                 </div>
                 <button className="btn btn-neutral mt-4">Login</button>
+
+               
               </form>
-            </div>
+              <button onClick={handleGoogleSignIn} className="btn btn-neutral mt-4">Sign in with Google</button>
+
+            </div> {error && <p className="text-red-500"> {error}</p>}
+
           </div>
         </div>
       </div>

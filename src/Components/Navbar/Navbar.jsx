@@ -1,24 +1,20 @@
 import React, { use } from "react";
 
 import billLogo from "../../assets/bill-logo.png";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { FiEdit } from "react-icons/fi";
 import { PiSignOutFill } from "react-icons/pi";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
-  const { user, balance,UsersignOut,setLoding ,setUser} = use(AuthContext);
+  const { user, balance, UsersignOut, setLoding, setUser } = use(AuthContext);
 
-
-  const handleSignOUt = () =>{
-
-    UsersignOut()
-    setUser(null)
-    setLoding(false)
-
-
-    
-  }
+  const handleSignOUt = () => {
+    UsersignOut();
+    setUser(null);
+    setLoding(false);
+  };
 
   console.log(user);
 
@@ -89,21 +85,67 @@ const Navbar = () => {
       <div className="navbar-end gap-2">
         {user ? (
           user.photoURL ? (
-            <img src={user.photoURL} alt="" />
+            <div className="h-10 w-10 cursor-pointer flex flex-col justify-center items-center rounded-full  text-xl font-bold common-shadow profile">
+              <img
+                className="rounded-full common-shadow"
+                src={user.photoURL}
+                alt=""
+              />
+              <div className="h-fit w-60  p-4 drop-menu common-shadow">
+                <p className="font-normal text-sm ml-2 py-2 border-b ">
+                  Balance :{" "}
+                  <span className="text-green-500 font-bold">{balance}</span>{" "}
+                  BDT
+                </p>
+
+                <div className="font-normal p-2 grid grid-cols-2">
+                  <Link to={"/update"}>
+                    <div className="text-xl text-gray-600 flex border-r cursor-pointer  text-center hover:bg-blue-50 flex-row gap-2 items-center p-1 ">
+                      <p className="text-sm font-semibold  text-center">
+                        Profile
+                      </p>
+                      <CgProfile />
+                    </div>
+                  </Link>
+
+                  <div
+                    onClick={handleSignOUt}
+                    className="flex cursor-pointer p-1 hover:bg-blue-50 flex-row gap-2 items-center "
+                  >
+                    <p className="text-sm font-semibold  text-center">
+                      Sign Out
+                    </p>
+                    <div className="text-xl  text-gray-600">
+                      <PiSignOutFill />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           ) : (
             <div className="h-10 w-10 cursor-pointer flex flex-col justify-center items-center rounded-full  text-xl font-bold common-shadow profile">
               <p>{user.email[0]}</p>
               <div className="h-fit w-60  p-4 drop-menu common-shadow">
-                <p className="font-normal text-sm ml-2 py-2 border-b ">Balance : <span className="text-green-500 font-bold">{balance}</span> BDT</p>
+                <p className="font-normal text-sm ml-2 py-2 border-b ">
+                  Balance :{" "}
+                  <span className="text-green-500 font-bold">{balance}</span>{" "}
+                  BDT
+                </p>
 
                 <div className="font-normal p-2 grid grid-cols-2">
-                  <div className="text-xl text-gray-600 flex border-r cursor-pointer  text-center hover:bg-blue-50 flex-row gap-2 items-center p-1 "><p className="text-sm font-semibold  text-center">Update</p>
+                  <div className="text-xl text-gray-600 flex border-r cursor-pointer  text-center hover:bg-blue-50 flex-row gap-2 items-center p-1 ">
+                    <p className="text-sm font-semibold  text-center">Update</p>
                     <FiEdit />
                   </div>
 
-                  <div onClick={handleSignOUt} className="flex cursor-pointer p-1 hover:bg-blue-50 flex-row gap-2 items-center ">
-                    <p className="text-sm font-semibold  text-center">Sign Out</p>
-                    <div  className="text-xl  text-gray-600">
+                  <div
+                    onClick={handleSignOUt}
+                    className="flex cursor-pointer p-1 hover:bg-blue-50 flex-row gap-2 items-center "
+                  >
+                    <p className="text-sm font-semibold  text-center">
+                      Sign Out
+                    </p>
+                    <div className="text-xl  text-gray-600">
                       <PiSignOutFill />
                     </div>
                   </div>
@@ -112,13 +154,20 @@ const Navbar = () => {
             </div>
           )
         ) : (
-          <div className="common-shadow  font-bold text-gray-500
-          ">
-      
-            <NavLink to={"/login"} className=" btn hover:bg-blue-50 py-3  border-r">
+          <div
+            className="common-shadow  font-bold text-gray-500
+          "
+          >
+            <NavLink
+              to={"/login"}
+              className=" btn hover:bg-blue-50 py-3  border-r"
+            >
               Login
             </NavLink>
-            <NavLink to={"/register"} className="p-2 btn hover:bg-blue-50 py-3 ">
+            <NavLink
+              to={"/register"}
+              className="p-2 btn hover:bg-blue-50 py-3 "
+            >
               Register
             </NavLink>
           </div>

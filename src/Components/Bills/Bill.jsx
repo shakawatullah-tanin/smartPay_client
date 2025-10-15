@@ -5,8 +5,8 @@ const Bill = ({ bill }) => {
   const { icon, due_date, bill_type, organization, amount,id } = bill;
 
   return (
-    <div>
-      <div className="card common-shadow max-w-1/2 mx-auto lg:card-side p-4  bg-base-100  mt-4 shadow-sm">
+    <div className="my-12">
+      <div className="card common-shadow max-w-1/2  mx-auto lg:card-side p-4  bg-base-100  mt-4 shadow-sm">
         <img src={icon} className="w-52 p-4 " alt="" />
         <div className="card-body flex flex-col justify-between border-blue-500 rounded-tl-4xl border-l">
           <div className="flex flex-row pb-6 justify-between">
