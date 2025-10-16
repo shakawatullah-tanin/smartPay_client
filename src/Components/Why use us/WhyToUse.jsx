@@ -3,9 +3,9 @@ import React from "react";
 const WhyToUse = () => {
   return (
     <div className="text-center py-20">
-      <h1 className="text-gray-500 font-bold text-5xl py-5">Why Smart Pay?</h1>
+      <h1 className="text-gray-500 font-bold md:text-5xl text-xl py-5">Why Smart Pay?</h1>
 
-      <div className="flex gap-4 my-8 justify-between mx-12 items-center">
+      <div className="md:grid grid-cols-3 gap-4 my-8 justify-between mx-12 items-center">
         <div className="card flex flex-col justify-center  common-shadow p-8">
             <img
               className="w-14"

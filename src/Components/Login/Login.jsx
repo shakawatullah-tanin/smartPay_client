@@ -1,20 +1,14 @@
 import React, { use } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import {
-  Link,
-  Navigate,
-  useLocation,
-  useNavigate,
-} from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
 
-
   const location = useLocation();
 
-  const { signIn, error, setError,signInWithgoogle } = use(AuthContext);
+  const { signIn, error, setError, signInWithgoogle } = use(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,7 +21,21 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result);
-        navigate(location.state.from ? location.state.from : "/");
+        navigate(location.state ? location.state.from : "/");
+      })
+
+      .catch((err) => {
+        setError(" Incorrect Email or Password");
+        console.log(err);
+        toast.error("Login failed");
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithgoogle()
+      .then((result) => {
+        console.log(result);
+        navigate(location.state ? location.state.from : "/");
       })
 
       .catch((err) => {
@@ -37,35 +45,16 @@ const Login = () => {
       });
   };
 
-  const handleGoogleSignIn =( ) =>{
-
-    signInWithgoogle()
-    .then((result) => {
-        console.log(result);
-        navigate(location.state.from ? location.state.from : "/");
-      })
-
-      .catch((err) => {
-        setError(" Incorrect Email or Password");
-
-        toast.error("Login failed");
-      });
-
-  }
-
   return (
     <div>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col">
+      <div className=" my-4 bg-base-200 min-h-screen">
+        <div className=" flex-col">
           <div className="text-center lg:text-center">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            <h1 className="text-2xl text-gray-500 my-4 font-bold">
+              Login now!
+            </h1>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 max-w-80 mx-auto  shadow-2xl">
             <div className="card-body">
               <form onSubmit={handleLogin} className="fieldset">
                 <label className="label">Email</label>
@@ -86,15 +75,21 @@ const Login = () => {
                   <a className="link link-hover">Forgot password?</a>
                 </div>
                 <button className="btn btn-neutral mt-4">Login</button>
-
-               
               </form>
-              <button onClick={handleGoogleSignIn} className="btn btn-neutral mt-4">Sign in with Google</button>
-
-              <p>You don't have account?<Link className="text-blue-800 font-bold underline" to={"/register"}>Register</Link></p>
-
-            </div> {error && <p className="text-red-500"> {error}</p>}
-
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn btn-neutral mt-4"
+              >
+                Sign in with Google
+              </button>
+            </div>{" "}
+            <p className="text-center">
+              You don't have account?{" "}
+              <Link to={"/register"} className="text-blue-800 font-bold underline">
+                Register
+              </Link>
+            </p>
+            {error && <p className="text-red-500 text-center py-1"> {error}</p>}
           </div>
         </div>
       </div>

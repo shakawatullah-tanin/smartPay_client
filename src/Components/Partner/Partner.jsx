@@ -15,9 +15,9 @@ const Partner = () => {
     <div>
       <div className="text-center py-20">
         {" "}
-        <h1 className="font-bold text-gray-500 text-4xl">Work With Us</h1>
+        <h1 className="font-bold text-gray-500 text-xl lg:text-4xl md:text-3xl">Work With Us</h1>
       </div>
-        <div className="grid partner-section grid-cols-6 py-4 gap-6">
+        <div className="md:grid w-fit md:w-full mx-auto  lg:grid partner-section  grid-cols-6 py-4 gap-6">
           {partner.map((single) => (
             <SinglePartner key={single.id} single={single}></SinglePartner>
           ))}

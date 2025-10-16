@@ -50,19 +50,15 @@ const Register = () => {
 
   return (
     <div>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col">
-          <div className="text-center lg:text-center">
-            <h1 className="text-5xl font-bold">
-              To Get Full Service ! Register Now
+      <div className=" bg-base-200 min-h-screen">
+        <div className=" flex-col">
+          <div className="text-center my-4 lg:text-center">
+            <h1 className="text-xl text-gray-500 font-bold">
+               Register 
             </h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+     
           </div>
-          <div className="card common-shadow bg-base-100 w-full max-w-sm shrink-0 ">
+          <div className="card common-shadow bg-base-100 max-w-72 mx-auto">
             <div className="card-body">
               <form onSubmit={handleSubmit} className="fieldset">
                 <label className="label">Name</label>

@@ -8,11 +8,11 @@ import wasa from "../assets/Seal_of_Dhaka_Water_Supply_and_Sewerage_Authority.sv
 const Banner = () => {
   return (
     <div>
-      <div className="carousel w-full py-3">
+      <div className="carousel w-full  py-3">
         <div id="item1" className="carousel-item w-full">
           <img
             src={nesco}
-            className="w-full h-60"
+            className="w-full  h-60"
           />
         </div>
         <div id="item2" className="carousel-item w-full">

@@ -46,7 +46,7 @@ console.log(paid)
       </div>
 
       <div className="px-3 py-1 border-l ">
-        <p>{singleData?.organization}</p>
+        <p className="text-gray-500 ">{singleData?.organization}</p>
         <p>{singleData?.bill_type}</p>
         <p>{singleData?.amount}</p>
         <p>{singleData?.due_date}</p>

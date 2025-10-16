@@ -44,25 +44,15 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 shadow"
           >
             <li>
-              <a>Item 1</a>
+              <NavLink to={"/"}>Home</NavLink>
             </li>
+         
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
+              <NavLink to={"/protected"}>Bill</NavLink>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost md:flex hidden">
+        <a className="btn btn-ghost md:hidden lg:flex hidden">
           {" "}
           <img className=" p-2 w-14 " src={billLogo} alt="" />{" "}
           <p className="text-lg">Smart Pay </p>{" "}
@@ -133,10 +123,14 @@ const Navbar = () => {
                 </p>
 
                 <div className="font-normal p-2 grid grid-cols-2">
-                  <div className="text-xl text-gray-600 flex border-r cursor-pointer  text-center hover:bg-blue-50 flex-row gap-2 items-center p-1 ">
-                    <p className="text-sm font-semibold  text-center">Update</p>
-                    <FiEdit />
-                  </div>
+                  <Link to={"/update"}>
+                    <div className="text-xl text-gray-600 flex border-r cursor-pointer  text-center hover:bg-blue-50 flex-row gap-2 items-center p-1 ">
+                      <p className="text-sm font-semibold  text-center">
+                        Profile
+                      </p>
+                      <CgProfile />
+                    </div>
+                  </Link>
 
                   <div
                     onClick={handleSignOUt}

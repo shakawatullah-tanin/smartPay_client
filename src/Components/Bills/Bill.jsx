@@ -6,10 +6,10 @@ const Bill = ({ bill }) => {
 
   return (
     <div className="my-12">
-      <div className="card common-shadow max-w-1/2  mx-auto lg:card-side p-4  bg-base-100  mt-4 shadow-sm">
+      <div className="card common-shadow md:max-w-1/2 w-fit mx-auto md:card-side p-4 bg-base-100   mt-4 shadow-sm">
         <img src={icon} className="w-52 p-4 " alt="" />
         <div className="card-body flex flex-col justify-between border-blue-500 rounded-tl-4xl border-l">
-          <div className="flex flex-row pb-6 justify-between">
+          <div className="flex flex-row items-center pb-6 w-full md:mx-auto  justify-between">
             <h2 className="card-title text-xl md:text-2xl font-bold text-gray-500">
               {bill_type}
             </h2>
