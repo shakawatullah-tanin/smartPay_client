@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import {
+  Link,
   Navigate,
   useLocation,
   useNavigate,
@@ -10,11 +11,9 @@ import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
 
-  // const navigation =useNavigation()
 
   const location = useLocation();
 
-  console.log(location?.state?.from);
   const { signIn, error, setError,signInWithgoogle } = use(AuthContext);
 
   const handleLogin = (e) => {
@@ -91,6 +90,8 @@ const Login = () => {
                
               </form>
               <button onClick={handleGoogleSignIn} className="btn btn-neutral mt-4">Sign in with Google</button>
+
+              <p>You don't have account?<Link className="text-blue-800 font-bold underline" to={"/register"}>Register</Link></p>
 
             </div> {error && <p className="text-red-500"> {error}</p>}
 
