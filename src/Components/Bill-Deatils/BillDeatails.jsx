@@ -15,7 +15,7 @@ console.log(paid)
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("../../../public/bill.json")
+    fetch("http://localhost:5000/bills")
       .then((res) => res.json())
       .then((data) => setDetails(data));
   }, []);

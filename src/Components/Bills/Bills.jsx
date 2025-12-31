@@ -8,7 +8,7 @@ const Bills = () => {
 
 
     useEffect(()=>{
-        fetch("bill.json")
+        fetch("http://localhost:5000/bills")
         .then(res=>(res.json()))
         .then(data=>setBills(data))
     },

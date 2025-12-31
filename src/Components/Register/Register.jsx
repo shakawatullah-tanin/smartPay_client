@@ -83,7 +83,6 @@ const Register = () => {
                   name="photoUrl"
                   className="input"
                   placeholder="Photo Url"
-                  required
                 />
 
                 <label calassName="label">Password</label>
