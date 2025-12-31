@@ -1,21 +1,25 @@
-import React, { use,  useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 
 const BillDeatails = () => {
-    const {paid, setPaid} = use(AuthContext)
+  const {
+    paid,
+    setPaid,
+    balance,
+    setBalance,
+    setPaymentHistory,
+  } = use(AuthContext);
 
-    const navigate =useNavigate()
- 
-  const { balance, setBalance } = use(AuthContext);
+  const navigate = useNavigate();
 
   const [details, setDetails] = useState([]);
-console.log(paid)
+  console.log(paid);
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:5000/bills")
+    fetch("https://smart-pay-server.vercel.app/bills")
       .then((res) => res.json())
       .then((data) => setDetails(data));
   }, []);
@@ -26,16 +30,27 @@ console.log(paid)
   const handleBalance = () => {
     const paidBill = paid.find((id) => id == singleData?.id);
 
-    console.log(paidBill)
+    console.log(paidBill);
     if (paidBill) {
       toast.warn("alrady paid");
     } else {
       console.log(balance);
       const newBalance = balance - singleData?.amount;
       setBalance(newBalance);
-      setPaid([...paid , singleData.id]);
-      toast.success("Successfully Paid")
-      navigate("/protected")
+      setPaid([...paid, singleData.id]);
+      setPaymentHistory((prev) => [
+        {
+          id: singleData.id,
+          organization: singleData.organization,
+          bill_type: singleData.bill_type,
+          amount: singleData.amount,
+          due_date: singleData.due_date,
+          time: new Date().toLocaleString(),
+        },
+        ...prev,
+      ]);
+      toast.success("Successfully Paid");
+      navigate("/protected");
     }
   };
 

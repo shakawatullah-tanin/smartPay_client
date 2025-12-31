@@ -6,6 +6,7 @@ import { AuthContext } from "../Context/AuthContext";
 import { FiEdit } from "react-icons/fi";
 import { PiSignOutFill } from "react-icons/pi";
 import { CgProfile } from "react-icons/cg";
+import { MdOutlineHistory } from "react-icons/md";
 
 const Navbar = () => {
   const { user, balance, UsersignOut, setLoding, setUser } = use(AuthContext);
@@ -46,7 +47,7 @@ const Navbar = () => {
             <li>
               <NavLink to={"/"}>Home</NavLink>
             </li>
-         
+
             <li>
               <NavLink to={"/protected"}>Bill</NavLink>
             </li>
@@ -82,11 +83,18 @@ const Navbar = () => {
                 alt=""
               />
               <div className="h-fit w-60  p-4 drop-menu common-shadow">
-                <p className="font-normal text-sm ml-2 py-2 border-b ">
-                  Balance :{" "}
-                  <span className="text-green-500 font-bold">{balance}</span>{" "}
-                  BDT
-                </p>
+                <div className="border-b flex items-center justify-between">
+                  <p className="font-normal text-sm ml-2 py-2 ">
+                    Balance :
+                    <span className="text-green-500 font-bold">{balance}</span>
+                    BDT
+                  </p>
+                  <p> 
+                    <Link to={"/history"}>
+                    <MdOutlineHistory></MdOutlineHistory>
+                    </Link>
+                  </p>
+                </div>
 
                 <div className="font-normal p-2 grid grid-cols-2">
                   <Link to={"/update"}>

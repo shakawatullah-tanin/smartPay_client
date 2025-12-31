@@ -8,7 +8,7 @@ const Bills = () => {
 
 
     useEffect(()=>{
-        fetch("http://localhost:5000/bills")
+        fetch("https://smart-pay-server.vercel.app/bills")
         .then(res=>(res.json()))
         .then(data=>setBills(data))
     },

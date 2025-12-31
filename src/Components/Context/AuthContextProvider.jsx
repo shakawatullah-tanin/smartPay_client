@@ -14,6 +14,8 @@ import { auth } from "../../firebase.config";
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [paid, setPaid] = useState([]);
+  const [paymentHistory, setPaymentHistory] = useState([]);
+
 
   const [loading, setLoding] = useState(true);
 
@@ -29,31 +31,19 @@ const AuthContextProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleProvider = new GoogleAuthProvider()
-  const signInWithgoogle = () =>{
+  const googleProvider = new GoogleAuthProvider();
+  const signInWithgoogle = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
 
+  const updateUserInfo = (displayName, photoURL) => {
+    return updateProfile(auth.currentUser, {
+      photoURL,
+      displayName,
+    });
+  };
 
-
-
-
-    return  signInWithPopup(auth,googleProvider)
-  }
-
-
-  const updateUserInfo = (displayName,photoURL) =>{
-
-
-    return updateProfile (auth.currentUser,{
-
-      photoURL,displayName
-    })
-  }
-
-
-  
-
-
-  const [error ,setError]=useState(false)
+  const [error, setError] = useState(false);
 
   const UsersignOut = () => {
     return signOut(auth);
@@ -82,6 +72,8 @@ const AuthContextProvider = ({ children }) => {
     signIn,
     paid,
     setPaid,
+    paymentHistory,
+    setPaymentHistory,
     user,
     loading,
     balance,
@@ -92,10 +84,8 @@ const AuthContextProvider = ({ children }) => {
     signInWithgoogle,
     updateUserInfo,
 
- 
-
     setError,
-    error
+    error,
   };
 
   return <AuthContext value={userInfo}>{children}</AuthContext>;

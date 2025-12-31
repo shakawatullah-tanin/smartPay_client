@@ -8,6 +8,7 @@ import PrivateRoute from "../Components/Private/PrivateRoute";
 import BillDeatails from "../Components/Bill-Deatils/BillDeatails";
 import Update from "../ProfileUpdate/Update";
 import UpdateProfile from "../ProfileUpdate/UpdateProfile";
+import History from "../History/History";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path:"/updateProfile",
         element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
+      },
+      {
+        path:"/history",
+        Component: History
       }
     ]
   }
